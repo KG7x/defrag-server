@@ -170,6 +170,7 @@ def main(argv):
 
         q3directory = '{}/servers/mount/{}'.format(config['root'], server_name)
         q3binary = '{}/{}'.format(q3directory, config['engine'])
+#		nice = '/usr/bin/nice -n -19'
 
         # Delete the old q3config output
         q3config_server_path = '{}/defrag/q3config_server.cfg'.format(q3directory)
@@ -199,17 +200,19 @@ def main(argv):
                 '+set net_port {}'.format(configs[server_name]['port']),
                 '+set rs_server_id {}'.format(configs[server_name]['rs_server_id']),
                 '+set com_hunkmegs {}'.format(configs[server_name]['config']['com_hunkmegs']),
-                '+set sv_pure {}'.format(configs[server_name]['config']['sv_pure']),
+#                '+set sv_pure {}'.format(configs[server_name]['config']['sv_pure']),
+				'+set sv_pure 0',
                 '+set fs_game defrag',
                 '+set dedicated 2',
-                '+set vm_game 0',
+                '+set vm_game {}'.format(configs[server_name]['config']['vm_game']),
                 '+set ttycon_ansicolor 1',
+                '+set sv_levelTimeReset 1',
                 '+set bot_enable 0',
                 '+exec cfgs/{}.cfg'.format(server_name)
             ]
 
-            if 'net_ip6' in configs[server_name]['config']:
-                q3args.append('+set net_ip6 {}'.format(configs[server_name]['config']['net_ip6']))
+#            if 'net_ip6' in configs[server_name]['config']:
+#                q3args.append('+set net_ip6 {}'.format(configs[server_name]['config']['net_ip6']))
 
             
             print("Starting server '{}'".format(server_name))

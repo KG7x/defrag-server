@@ -44,8 +44,8 @@
 				".admin-jabber":          "",
 				".admin-irc":             "",
 				".server-location":       "CHANGEME",
-				".homepage":              "http://q3df.org/",
-				".mapbase":               "http://ws.q3df.org/",
+				".homepage":              "https://q3df.org/",
+				".mapbase":               "https://ws.q3df.org/",
 
 				"sv_floodprotect":        "0",
 				"sv_punkbuster":          "0",
@@ -151,8 +151,7 @@
 				"df_vote_allow_mode":   "1",
 				"df_promode":           "1",
 				"df_obs_KillObs":       "1",
-				"net_enabled":          "3",
-				"net_ip6":              "CHANGEME"
+				"net_enabled":          "3"
 			}
 		},
 		"fastcaps-1": {
@@ -165,8 +164,7 @@
 				"sv_hostname":          "^1CHANGE^3ME^7",
 				"df_vote_allow_mode":   "1",
 				"df_promode":           "1",
-				"net_enabled":          "3",
-				"net_ip6":              "CHANGEME"
+				"net_enabled":          "3"
 			}
 		},
 		"teamrun-1": {
@@ -188,14 +186,14 @@
 			"map": "elco-gbparadise",
 			"config": {
 				"rs_enable":            "0",
+				"vm_game":            	"2",
 				"g_log":                "beta.log",
 				"g_password":           "CHANGEME",
 				"sv_hostname":          "^1CHANGE^3ME^7",
 				"df_vote_allow_mode":   "1",
 				"df_promode":           "1",
 				"df_obs_KillObs":       "1",
-				"net_enabled":          "3",
-				"net_ip6":              "CHANGEME"
+				"net_enabled":          "3"
 			}
 		},
 		"vq3-1": {
