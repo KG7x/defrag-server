@@ -5,13 +5,14 @@ import requests
 import shutil
 import sys
 import time
+import subprocess
 
 from collections import OrderedDict
 from contextlib import closing
 from lxml import html
 
-WS_URL = 'https://en.ws.q3df.org'
-WS_URL_LIST_TEMPLATE = '{}/maps/?show=50&page={{}}'.format(WS_URL)
+WS_URL = 'http://ws.q3df.org'
+WS_URL_LIST_TEMPLATE = '{}/maps/?mo=1&show=50&page={{}}'.format(WS_URL)
 WS_URL_PK3_TEMPLATE = '{}/maps/downloads/{{}}.pk3'.format(WS_URL)
 
 def collect_pk3_data(pk3_data, final_date=None, final_pk3=None, count=None):
@@ -156,13 +157,21 @@ def download_pk3s(pk3_data, directory):
         print("Downloading {}...".format(pk3_name), end='', flush=True)
 
         # In python 3.7 closing() can be removed (and the import too)
+#        try:
+#            with closing(requests.get(url,
+#                         stream=True,
+#                         headers={'User-agent': 'defrag-server-scraper'})) as data:
+#               data.raise_for_status()
+#                with open(path, 'wb') as file_descriptor:
+#                    shutil.copyfileobj(data.raw, file_descriptor)
+
+        # Test with wget
         try:
-            with closing(requests.get(url,
-                         stream=True,
-                         headers={'User-agent': 'defrag-server-scraper'})) as data:
-                data.raise_for_status()
-                with open(path, 'wb') as file_descriptor:
-                    shutil.copyfileobj(data.raw, file_descriptor)
+            code = subprocess.call(["wget", url, "--limit-rate=1024k", "--no-check-certificate", "-O", path])
+            if code != 0:
+                print("Wget returned an ERROR. Aborting!")
+                return
+
 
             print("DONE!")
         except requests.exceptions.HTTPError:
