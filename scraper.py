@@ -2,13 +2,11 @@
 import argparse
 import os
 import requests
-import shutil
 import sys
 import time
 import subprocess
 
 from collections import OrderedDict
-from contextlib import closing
 from lxml import html
 
 WS_URL = 'http://ws.q3df.org'
