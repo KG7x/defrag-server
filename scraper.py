@@ -76,10 +76,10 @@ def collect_pk3_data(pk3_data, final_date=None, final_pk3=None, count=None):
 
                 print("{} collected".format(pk3_name))
                 # Initialize the pk3 data structure
-                pk3_data[pk3_name] = dict()
+                pk3_data[pk3_name] = {}
                 pk3_data[pk3_name]['release_date'] = release_date
                 pk3_data[pk3_name]['size'] = pk3_size
-                pk3_data[pk3_name]['maps'] = list()
+                pk3_data[pk3_name]['maps'] = []
 
 
             # Each map bsp can be taken from the link href

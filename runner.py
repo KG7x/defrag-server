@@ -56,7 +56,7 @@ def write_config(config, path):
 
 
 def generate_config(server_name, config):
-    server_config = dict()
+    server_config = {}
     server_data = config['servers'][server_name]
 
     # Apply the templates
