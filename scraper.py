@@ -5,11 +5,12 @@ import requests
 import sys
 import time
 import subprocess
+requests.packages.urllib3.disable_warnings()
 
 from collections import OrderedDict
 from lxml import html
 
-WS_URL = 'http://ws.q3df.org'
+WS_URL = 'https://ws.q3df.org'
 WS_URL_LIST_TEMPLATE = '{}/maps/?mo=1&show=50&page={{}}'.format(WS_URL)
 WS_URL_PK3_TEMPLATE = '{}/maps/downloads/{{}}.pk3'.format(WS_URL)
 
@@ -22,7 +23,8 @@ def collect_pk3_data(pk3_data, final_date=None, final_pk3=None, count=None):
     collecting = True
 
     while(collecting):
-        page = requests.get(WS_URL_LIST_TEMPLATE.format(current_page))
+        # page = requests.get(WS_URL_LIST_TEMPLATE.format(current_page))
+        page = requests.get(WS_URL_LIST_TEMPLATE.format(current_page), verify=False)
         # If we didn't get a 200 response, take a break and try again, if we fail 3 times - die.
         if page.status_code != requests.codes['ok']:
             if failure_count >= 3:
