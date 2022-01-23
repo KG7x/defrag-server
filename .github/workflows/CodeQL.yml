@@ -1,4 +1,4 @@
-name: "CodeQL scan"
+name: CodeQL scan
 
 on: [push, pull_request]
 
@@ -12,7 +12,7 @@ jobs:
       uses: actions/checkout@v2
       with:      
         fetch-depth: 2
-      
+
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
 
