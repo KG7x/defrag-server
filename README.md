@@ -16,7 +16,7 @@ First customize the `config.json` file, then:
  * copy `mysqlconnection.info` to `proxymod-base/defrag`
  * copy entire modules directory to `proxymod-base/defrag`
  * copy any maps you have to `defrag-maps/defrag`
- * Download a copy of [ipv4db.dat](//edawn-mod.org/binaries/ip4db.dat)
+ * Download a copy of [ipv4db.dat](http://edawn-mod.org/binaries/ip4db.dat)
  * copy `ipv4db.dat` to `quake3-base/` (for `/locations` to function)
  * restart the server and everything should be up and running
  * modify `latest_map` to be the latest map you hae downloaded
