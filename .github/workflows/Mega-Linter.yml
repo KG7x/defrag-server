@@ -27,9 +27,10 @@ jobs:
         id: ml
         uses: nvuillam/mega-linter@v4
         env:
-          VALIDATE_ALL_CODEBASE: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }} # Validates all source when push on master, else just the git diff with master. Override with true if you always want to lint all sources
+          # Validates all source when push on master, else just the git diff with master. Override with true if you always want to lint all sources
+          VALIDATE_ALL_CODEBASE: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DISABLE: PYTHON_BLACK,PYTHON_FLAKE8,SPELL_CSPELL,YAML_YAMLLINT
+          DISABLE: black,flake8,cspell,yamllint
 
       # Upload Mega-Linter artifacts
       - name: Archive production artifacts
