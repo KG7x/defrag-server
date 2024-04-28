@@ -1,11 +1,13 @@
 [Unit]
-Description=Runs map daemon to auto dl maps as they're uploaded
+Description=Runs map daemon to auto dl defrag maps
 Wants=network-online.target
 After=network.target network-online.target
 
 [Service]
-Type=simple
-ExecStart=/bin/bash /root/96/map_daemon.sh
+User=user
+Restart=on-failure
+Type=forking
+ExecStart=/usr/bin/screen -dmS dlmap /home/user/dlmaps/map_daemon.sh
 
 [Install]
 WantedBy=multi-user.target
